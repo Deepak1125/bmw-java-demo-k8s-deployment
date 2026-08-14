@@ -22,7 +22,7 @@ spec:
     spec:
       containers:
         - name: java-demo
-          image: deepakchandra1125/bmw-java-demo-k8s:v0.0.5
+          image: deepakchandra1125/bmw-java-demo-k8s:v0.0.6
 
           ports:
             - containerPort: 8080
