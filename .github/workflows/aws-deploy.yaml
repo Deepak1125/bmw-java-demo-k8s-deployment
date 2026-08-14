@@ -37,33 +37,36 @@ jobs:
           whoami
 
           DEPLOY_DIR="/home/ubuntu/deployment"
-          REPO="https://github.com/Deepak1125/EC2-VM-for-aws-kind.git"
+          REPO="https://github.com/Deepak1125/bmw-java-demo-k8s-deployment.git"
 
           echo "=========================================="
           echo "Updating deployment repository"
           echo "=========================================="
 
           if [ -d "$DEPLOY_DIR/.git" ]; then
+
               echo "Repository exists. Pulling latest code..."
 
               cd "$DEPLOY_DIR"
 
               git remote set-url origin \
-                "https://Deepak1125:${GH_PAT}@github.com/Deepak1125/EC2-VM-for-aws-kind.git"
+                "https://Deepak1125:${GH_PAT}@github.com/Deepak1125/bmw-java-demo-k8s-deployment.git"
 
               git fetch origin
               git reset --hard origin/main
 
           else
+
               echo "Repository not found. Cloning..."
 
               rm -rf "$DEPLOY_DIR"
 
               git clone \
-                "https://Deepak1125:${GH_PAT}@github.com/Deepak1125/EC2-VM-for-aws-kind.git" \
+                "https://Deepak1125:${GH_PAT}@github.com/Deepak1125/bmw-java-demo-k8s-deployment.git" \
                 "$DEPLOY_DIR"
 
               cd "$DEPLOY_DIR"
+
           fi
 
           echo "=========================================="
